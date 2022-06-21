@@ -1,11 +1,11 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
-  "frontMatter.framework.id": "next",
-  "frontMatter.content.publicFolder": "public",
+  "frontMatter.framework.id": "nuxt",
+  "frontMatter.content.publicFolder": "static",
   "frontMatter.content.pageFolders": [
     {
-      "title": "pages",
-      "path": "[[workspace]]/at-001-baseline-infra/pages"
+      "title": "k8s",
+      "path": "[[workspace]]/k8s"
     }
   ]
 }
