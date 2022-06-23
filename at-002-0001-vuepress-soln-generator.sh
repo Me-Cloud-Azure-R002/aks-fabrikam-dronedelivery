@@ -7,6 +7,12 @@
 mkdir $1 && cd $1
 npm init --yes # OR yarn init --yes
 npm install --save-dev vuepress # OR yarn install --save-dev vuepress
+npm install --save-dev json
+
+# Update package.json
+### json --in-place -f package.json -e "this.scripts.test=\"echo \\\'Error: no test specified\\\" && exit 1\""
+json --in-place -f package.json -c 'this.scripts.debug="vuepress dev docs"'
+json --in-place -f package.json -c 'this.scripts.build="vuepress build docs"'
 
 : << warning-text
 WARNING:
@@ -22,35 +28,16 @@ mkdir -p docs/{blog,.vuepress}
 touch docs/README.md
 ../at-002-0002-vuepress-edit-readme.sh "docs/README.md"
 
-: << commented-temp
 ## blog directory
-mkdir docs/blog/{css,html,javascript}
-touch docs/blog/{css,html}/{lists.md,README.md}
-touch docs/blog/javascript/{functions.md,objects.md,README.md,strings.md,variables.md}
-touch docs/blog/{README.md,http.md}
-
 ## .vuepress directory
-mkdir docs/.vuepress/{components,theme}
-touch docs/.vuepress/components/{Footer.vue,Hero.vue,Message.vue,Navbar.vue}
-touch docs/.vuepress/config.js
-mkdir docs/.vuepress/theme/{layouts,styles}
-touch docs/.vuepress/theme/Layout.vue
-touch docs/.vuepress/theme/layouts/{Blog.vue,Home.vue,Post.vue}
-touch docs/.vuepress/theme/styles/{code.styl,custom-blocks.styl}
+../at-002-0003-vuepress-add-folders.sh
 
-commented-temp
-
-# Update package.json
-npm install --save-dev json
-# json --in-place -f package.json -e "this.scripts.test=\"echo \\\'Error: no test specified\\\" && exit 1\""
-json --in-place -f package.json -c 'this.scripts.debug="vuepress dev docs"'
-json --in-place -f package.json -c 'this.scripts.build="vuepress build docs"'
+# build
+# npm run build # OR yarn docs:build
 
 # start writing
 npm run debug # OR yarn docs:dev
 
-# build
-# npm run build # OR yarn docs:build
 
 
 
