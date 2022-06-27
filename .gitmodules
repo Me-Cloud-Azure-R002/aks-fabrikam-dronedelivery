@@ -2,3 +2,8 @@
 	path = workload
 	url = https://github.com/Me-Cloud-Azure-R002/fabrikam-dronedelivery-workload
 	branch = at-integration-0001-basics
+
+[submodule "workload"]
+	path = at-001-0001-baseline-cluster/src/workload
+	url = https://github.com/Me-Cloud-Azure-R002/fabrikam-dronedelivery-workload
+	branch = at-integration-0001-basics
